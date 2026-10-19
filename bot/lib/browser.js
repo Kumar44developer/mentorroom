@@ -51,3 +51,6 @@ class FetchXHR {
     this._method = method;
     this._url = fixRegion(url);
   }
+  setRequestHeader(k, v) {
+    this._headers[k] = v;
+  }
