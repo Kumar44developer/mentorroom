@@ -43,3 +43,6 @@ class FetchXHR {
     this.readyState = 0;
     this.status = 0;
     this.responseText = "";
+    this.response = "";
+    this._headers = {};
+  }
