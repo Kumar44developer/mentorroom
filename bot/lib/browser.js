@@ -48,3 +48,6 @@ class FetchXHR {
   }
   open(method, url) {
     if (process.env.MR_DEBUG) console.log("[XHR.open]", method, url);
+    this._method = method;
+    this._url = fixRegion(url);
+  }
