@@ -54,3 +54,6 @@ class FetchXHR {
   setRequestHeader(k, v) {
     this._headers[k] = v;
   }
+  getAllResponseHeaders() {
+    return "";
+  }
