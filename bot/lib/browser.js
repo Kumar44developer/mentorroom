@@ -60,3 +60,5 @@ class FetchXHR {
   getResponseHeader() {
     return null;
   }
+  overrideMimeType() {}
+  abort() {}
