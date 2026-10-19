@@ -35,3 +35,5 @@ function fixRegion(url) {
   } catch {
     /* not a URL */
   }
+  return url;
+}
