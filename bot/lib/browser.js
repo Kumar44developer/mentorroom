@@ -25,3 +25,10 @@ const REGION = process.env.COMETCHAT_REGION || "us";
 function fixRegion(url) {
   try {
     const u = new URL(url);
+    const m = u.hostname.match(/^(.*?\.(?:api|apiclient)-)[a-z0-9]+(\.cometchat\.io)$/);
+    if (m) {
+      const before = u.hostname;
+      u.hostname = `${m[1]}${REGION}${m[2]}`;
+      if (process.env.MR_DEBUG) console.log("[fixRegion]", before, "->", u.hostname);
+      return u.toString();
+    }
