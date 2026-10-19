@@ -32,3 +32,6 @@ function fixRegion(url) {
       if (process.env.MR_DEBUG) console.log("[fixRegion]", before, "->", u.hostname);
       return u.toString();
     }
+  } catch {
+    /* not a URL */
+  }
