@@ -20,3 +20,6 @@ class RobustWebSocket extends WebSocket {
     });
   }
 }
+
+const REGION = process.env.COMETCHAT_REGION || "us";
+function fixRegion(url) {
