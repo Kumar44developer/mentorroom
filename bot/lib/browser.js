@@ -41,3 +41,5 @@ function fixRegion(url) {
 class FetchXHR {
   constructor() {
     this.readyState = 0;
+    this.status = 0;
+    this.responseText = "";
