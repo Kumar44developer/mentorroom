@@ -46,3 +46,5 @@ class FetchXHR {
     this.response = "";
     this._headers = {};
   }
+  open(method, url) {
+    if (process.env.MR_DEBUG) console.log("[XHR.open]", method, url);
