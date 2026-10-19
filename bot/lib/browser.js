@@ -37,3 +37,7 @@ function fixRegion(url) {
   }
   return url;
 }
+
+class FetchXHR {
+  constructor() {
+    this.readyState = 0;
