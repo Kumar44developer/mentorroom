@@ -62,3 +62,6 @@ class FetchXHR {
   }
   overrideMimeType() {}
   abort() {}
+  send(body) {
+    const noBody = this._method === "GET" || this._method === "HEAD";
+    const ctrl = new AbortController();
