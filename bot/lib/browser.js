@@ -57,3 +57,6 @@ class FetchXHR {
   getAllResponseHeaders() {
     return "";
   }
+  getResponseHeader() {
+    return null;
+  }
