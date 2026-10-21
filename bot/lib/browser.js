@@ -72,3 +72,7 @@ class FetchXHR {
       body: noBody ? undefined : body,
       signal: ctrl.signal,
     })
+      .then(async (res) => {
+        this.status = res.status;
+        this.statusText = res.statusText;
+        const t = await res.text();
