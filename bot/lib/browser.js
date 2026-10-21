@@ -65,3 +65,10 @@ class FetchXHR {
   send(body) {
     const noBody = this._method === "GET" || this._method === "HEAD";
     const ctrl = new AbortController();
+    if (this.timeout) setTimeout(() => ctrl.abort(), this.timeout);
+    fetch(this._url, {
+      method: this._method,
+      headers: this._headers,
+      body: noBody ? undefined : body,
+      signal: ctrl.signal,
+    })
