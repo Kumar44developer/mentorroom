@@ -76,3 +76,6 @@ class FetchXHR {
         this.status = res.status;
         this.statusText = res.statusText;
         const t = await res.text();
+        this.responseText = t;
+        this.response = t;
+        this.readyState = 4;
