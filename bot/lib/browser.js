@@ -121,3 +121,5 @@ export async function loadCometChat() {
 
     const nativeFetch = globalThis.fetch.bind(globalThis);
     const safeFetch = (input, init = {}) => {
+      let url = typeof input === "string" ? input : input?.url || String(input);
+      if (process.env.MR_DEBUG) console.log("[safeFetch]", url);
