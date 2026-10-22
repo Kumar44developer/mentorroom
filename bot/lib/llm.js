@@ -25,3 +25,5 @@ async function classifyToxicityOnce(text) {
   }
   const base =
     process.env.LLM_BASE_URL ||
+    (provider === "groq" ? "https://api.groq.com/openai/v1" : "https://api.openai.com/v1");
+  const model =
