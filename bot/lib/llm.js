@@ -20,3 +20,6 @@ export async function classifyToxicity(text) {
 
 async function classifyToxicityOnce(text) {
   const provider = (process.env.LLM_PROVIDER || "none").toLowerCase();
+  if (!["groq", "openai"].includes(provider) || !process.env.LLM_API_KEY) {
+    return { verdict: "unclear" };
+  }
