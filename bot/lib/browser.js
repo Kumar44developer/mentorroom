@@ -137,3 +137,8 @@ export async function loadCometChat() {
       window.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {} });
     if (!window.scrollTo) window.scrollTo = () => {};
   }
+
+  const mod = await import("@cometchat/chat-sdk-javascript");
+  // UMD bundle: the CometChat object may land on .CometChat, .default, or
+  // .default.CometChat depending on how Node resolves the module.
+  const CC = mod?.CometChat || mod?.default?.CometChat || mod?.default || mod;
