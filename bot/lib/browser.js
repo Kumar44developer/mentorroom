@@ -92,3 +92,6 @@ export async function loadCometChat() {
   if (!globalThis.window) {
     const dom = new JSDOM("<!DOCTYPE html><html><body></body></html>", {
       url: "http://localhost/",
+      pretendToBeVisual: true,
+    });
+    const { window } = dom;
