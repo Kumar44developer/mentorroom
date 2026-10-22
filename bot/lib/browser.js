@@ -145,3 +145,9 @@ export async function loadCometChat() {
   if (!CC || typeof CC.init !== "function") {
     throw new Error(
       "Could not resolve the CometChat object from the SDK module. Keys: " +
+        Object.keys(mod).join(",") +
+        (mod?.default ? " | default keys: " + Object.keys(mod.default).slice(0, 8).join(",") : "")
+    );
+  }
+  return CC;
+}
