@@ -102,3 +102,8 @@ export async function loadCometChat() {
       } catch {
         try {
           globalThis[key] = value;
+        } catch {
+          /* some globals (e.g. navigator) may be un-overridable; the SDK uses window.* anyway */
+        }
+      }
+    };
