@@ -13,3 +13,7 @@ export function llmConfigured() {
 export async function classifyToxicity(text) {
   for (let attempt = 0; attempt < 2; attempt++) {
     const out = await classifyToxicityOnce(text);
+    if (out.verdict !== "unclear") return { flagged: out.verdict === "unsafe", reason: out.reason, score: out.verdict === "unsafe" ? 1 : 0 };
+  }
+  return { flagged: false }; // still unclear after retry -> fail open
+}
