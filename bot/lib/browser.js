@@ -95,3 +95,7 @@ export async function loadCometChat() {
       pretendToBeVisual: true,
     });
     const { window } = dom;
+
+    const define = (key, value) => {
+      try {
+        Object.defineProperty(globalThis, key, { value, writable: true, configurable: true });
