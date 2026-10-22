@@ -11,3 +11,5 @@ export function llmConfigured() {
 }
 
 export async function classifyToxicity(text) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const out = await classifyToxicityOnce(text);
