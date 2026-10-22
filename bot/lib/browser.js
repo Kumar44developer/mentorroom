@@ -129,3 +129,5 @@ export async function loadCometChat() {
       if (opts.mode === "cors") delete opts.mode;
       return nativeFetch(url, opts);
     };
+    globalThis.fetch = safeFetch;
+    window.fetch = safeFetch;
