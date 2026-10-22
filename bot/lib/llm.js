@@ -17,3 +17,6 @@ export async function classifyToxicity(text) {
   }
   return { flagged: false }; // still unclear after retry -> fail open
 }
+
+async function classifyToxicityOnce(text) {
+  const provider = (process.env.LLM_PROVIDER || "none").toLowerCase();
