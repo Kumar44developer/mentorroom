@@ -29,3 +29,5 @@ async function classifyToxicityOnce(text) {
   const model =
     process.env.LLM_TOXICITY_MODEL ||
     (provider === "groq" ? "openai/gpt-oss-safeguard-20b" : "omni-moderation-latest");
+  try {
+    const res = await fetch(`${base}/chat/completions`, {
