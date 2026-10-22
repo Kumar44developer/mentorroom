@@ -107,3 +107,9 @@ export async function loadCometChat() {
         }
       }
     };
+
+
+    define("window", window);
+    define("document", window.document);
+    define("navigator", window.navigator);
+    define("location", window.location);
