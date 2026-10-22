@@ -36,3 +36,5 @@ async function classifyToxicityOnce(text) {
         "content-type": "application/json",
         authorization: `Bearer ${process.env.LLM_API_KEY}`,
       },
+      signal: AbortSignal.timeout(4000),
+      body: JSON.stringify({
