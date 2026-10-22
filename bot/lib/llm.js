@@ -31,3 +31,8 @@ async function classifyToxicityOnce(text) {
     (provider === "groq" ? "openai/gpt-oss-safeguard-20b" : "omni-moderation-latest");
   try {
     const res = await fetch(`${base}/chat/completions`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${process.env.LLM_API_KEY}`,
+      },
