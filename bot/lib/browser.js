@@ -123,3 +123,5 @@ export async function loadCometChat() {
     const safeFetch = (input, init = {}) => {
       let url = typeof input === "string" ? input : input?.url || String(input);
       if (process.env.MR_DEBUG) console.log("[safeFetch]", url);
+      url = fixRegion(url);
+      const opts = { ...init };
