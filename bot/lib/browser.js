@@ -118,3 +118,6 @@ export async function loadCometChat() {
     define("WebSocket", RobustWebSocket);
     define("XMLHttpRequest", FetchXHR);
     window.XMLHttpRequest = FetchXHR;
+
+    const nativeFetch = globalThis.fetch.bind(globalThis);
+    const safeFetch = (input, init = {}) => {
