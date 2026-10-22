@@ -27,3 +27,5 @@ async function classifyToxicityOnce(text) {
     process.env.LLM_BASE_URL ||
     (provider === "groq" ? "https://api.groq.com/openai/v1" : "https://api.openai.com/v1");
   const model =
+    process.env.LLM_TOXICITY_MODEL ||
+    (provider === "groq" ? "openai/gpt-oss-safeguard-20b" : "omni-moderation-latest");
