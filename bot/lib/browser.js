@@ -99,3 +99,6 @@ export async function loadCometChat() {
     const define = (key, value) => {
       try {
         Object.defineProperty(globalThis, key, { value, writable: true, configurable: true });
+      } catch {
+        try {
+          globalThis[key] = value;
