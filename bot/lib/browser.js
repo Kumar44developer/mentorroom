@@ -142,3 +142,6 @@ export async function loadCometChat() {
   // UMD bundle: the CometChat object may land on .CometChat, .default, or
   // .default.CometChat depending on how Node resolves the module.
   const CC = mod?.CometChat || mod?.default?.CometChat || mod?.default || mod;
+  if (!CC || typeof CC.init !== "function") {
+    throw new Error(
+      "Could not resolve the CometChat object from the SDK module. Keys: " +
