@@ -9,3 +9,5 @@ export function llmConfigured() {
   if (p === "ollama") return true;
   return Boolean(process.env.LLM_API_KEY);
 }
+
+export async function classifyToxicity(text) {
