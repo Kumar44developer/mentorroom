@@ -113,3 +113,5 @@ export async function loadCometChat() {
     define("document", window.document);
     define("navigator", window.navigator);
     define("location", window.location);
+    define("localStorage", window.localStorage);
+    define("sessionStorage", window.sessionStorage);
