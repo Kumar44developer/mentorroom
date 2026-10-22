@@ -125,3 +125,7 @@ export async function loadCometChat() {
       if (process.env.MR_DEBUG) console.log("[safeFetch]", url);
       url = fixRegion(url);
       const opts = { ...init };
+      if (opts.referrer && !/^https?:\/\//i.test(opts.referrer)) delete opts.referrer;
+      if (opts.mode === "cors") delete opts.mode;
+      return nativeFetch(url, opts);
+    };
