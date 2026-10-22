@@ -79,3 +79,11 @@ class FetchXHR {
         this.responseText = t;
         this.response = t;
         this.readyState = 4;
+      .catch((err) => {
+        this.status = 0;
+        this.readyState = 4;
+        this.onerror && this.onerror(err);
+      });
+  }
+}
+FetchXHR.DONE = 4;
