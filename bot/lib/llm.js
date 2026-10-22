@@ -23,3 +23,5 @@ async function classifyToxicityOnce(text) {
   if (!["groq", "openai"].includes(provider) || !process.env.LLM_API_KEY) {
     return { verdict: "unclear" };
   }
+  const base =
+    process.env.LLM_BASE_URL ||
