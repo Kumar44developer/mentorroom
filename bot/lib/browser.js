@@ -133,3 +133,7 @@ export async function loadCometChat() {
     window.fetch = safeFetch;
     define("btoa", (str) => Buffer.from(str, "binary").toString("base64"));
     define("atob", (b64) => Buffer.from(b64, "base64").toString("binary"));
+    if (!window.matchMedia)
+      window.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {} });
+    if (!window.scrollTo) window.scrollTo = () => {};
+  }
