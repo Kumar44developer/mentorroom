@@ -115,3 +115,6 @@ export async function loadCometChat() {
     define("location", window.location);
     define("localStorage", window.localStorage);
     define("sessionStorage", window.sessionStorage);
+    define("WebSocket", RobustWebSocket);
+    define("XMLHttpRequest", FetchXHR);
+    window.XMLHttpRequest = FetchXHR;
