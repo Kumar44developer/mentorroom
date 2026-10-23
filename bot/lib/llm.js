@@ -89,3 +89,6 @@ export async function askMentor(context, question) {
   }
   return fallbackAnswer(question);
 }
+
+async function callOpenAI(userPrompt) {
+  const base = process.env.LLM_BASE_URL || "https://api.openai.com/v1";
