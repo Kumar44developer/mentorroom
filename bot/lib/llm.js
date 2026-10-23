@@ -84,3 +84,6 @@ export async function askMentor(context, question) {
     if (provider === "anthropic") return await callAnthropic(userPrompt);
     if (provider === "gemini") return await callGemini(userPrompt);
     if (provider === "ollama") return await callOllama(userPrompt);
+  } catch (e) {
+    console.error("[llm] provider error, using fallback:", e.message);
+  }
