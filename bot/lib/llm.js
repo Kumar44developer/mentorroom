@@ -71,3 +71,6 @@ async function classifyToxicityOnce(text) {
 export async function askMentor(context, question) {
   const provider = (process.env.LLM_PROVIDER || "none").toLowerCase();
   const transcript = context
+    .map((m) => `${m.name}: ${m.text}`)
+    .join("\n")
+    .slice(-4000);
