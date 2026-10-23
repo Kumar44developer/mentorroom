@@ -48,3 +48,7 @@ async function classifyToxicityOnce(text) {
             content:
               "You are a content moderator for a student study chat. Classify the user message for insults, harassment, hate or self-harm directed at people. Respond in exactly this format on line one: VERDICT: SAFE or VERDICT: UNSAFE. Optionally add line two: REASON: <one or two words>.",
           },
+          { role: "user", content: text },
+        ],
+      }),
+    });
