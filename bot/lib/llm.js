@@ -76,3 +76,8 @@ export async function askMentor(context, question) {
     .slice(-4000);
 
   const userPrompt = `Recent room conversation:\n${transcript || "(no prior messages)"}\n\nNew question to answer:\n${question}`;
+
+
+  try {
+    if (provider === "openai") return await callOpenAI(userPrompt);
+    if (provider === "groq") return await callGroq(userPrompt);
