@@ -99,3 +99,5 @@ async function callOpenAI(userPrompt) {
       "content-type": "application/json",
       authorization: `Bearer ${process.env.LLM_API_KEY}`,
     },
+    signal: AbortSignal.timeout(20000),
+    body: JSON.stringify({
