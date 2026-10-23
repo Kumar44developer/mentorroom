@@ -62,3 +62,7 @@ async function classifyToxicityOnce(text) {
     }
     if (/VERDICT:\s*SAFE|\bSAFE\b/.test(content)) return { verdict: "safe" };
     return { verdict: "unclear" }; // empty/truncated -> caller retries
+  } catch {
+    return { verdict: "unclear" };
+  }
+}
