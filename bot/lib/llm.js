@@ -92,3 +92,5 @@ export async function askMentor(context, question) {
 
 async function callOpenAI(userPrompt) {
   const base = process.env.LLM_BASE_URL || "https://api.openai.com/v1";
+  const model = process.env.LLM_MODEL || "gpt-4o-mini";
+  const res = await fetch(`${base}/chat/completions`, {
