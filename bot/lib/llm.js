@@ -52,3 +52,6 @@ async function classifyToxicityOnce(text) {
         ],
       }),
     });
+    const data = await res.json();
+    if (data?.error) return { verdict: "unclear" };
+    const content = (data?.choices?.[0]?.message?.content || "").toUpperCase();
