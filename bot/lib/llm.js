@@ -74,3 +74,5 @@ export async function askMentor(context, question) {
     .map((m) => `${m.name}: ${m.text}`)
     .join("\n")
     .slice(-4000);
+
+  const userPrompt = `Recent room conversation:\n${transcript || "(no prior messages)"}\n\nNew question to answer:\n${question}`;
