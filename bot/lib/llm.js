@@ -96,3 +96,6 @@ async function callOpenAI(userPrompt) {
   const res = await fetch(`${base}/chat/completions`, {
     method: "POST",
     headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${process.env.LLM_API_KEY}`,
+    },
