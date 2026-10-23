@@ -87,3 +87,5 @@ export async function askMentor(context, question) {
   } catch (e) {
     console.error("[llm] provider error, using fallback:", e.message);
   }
+  return fallbackAnswer(question);
+}
