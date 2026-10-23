@@ -101,3 +101,5 @@ async function callOpenAI(userPrompt) {
     },
     signal: AbortSignal.timeout(20000),
     body: JSON.stringify({
+      model,
+      max_tokens: 300,
