@@ -55,3 +55,8 @@ async function classifyToxicityOnce(text) {
     const data = await res.json();
     if (data?.error) return { verdict: "unclear" };
     const content = (data?.choices?.[0]?.message?.content || "").toUpperCase();
+    if (/VERDICT:\s*UNSAFE|\bUNSAFE\b/.test(content)) {
+      const m = content.match(/REASON:\s*([^\n]+)/);
+      const reason = m ? m[1].trim().toLowerCase().replace(/_/g, " ") : "hostile content";
+      return { verdict: "unsafe", reason: `Flagged by AI moderator (${reason})` };
+    }
