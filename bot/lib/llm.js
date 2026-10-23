@@ -40,3 +40,7 @@ async function classifyToxicityOnce(text) {
       body: JSON.stringify({
         model,
         temperature: 0,
+
+        max_tokens: 512,
+        messages: [
+          {
