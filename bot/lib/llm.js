@@ -81,3 +81,6 @@ export async function askMentor(context, question) {
   try {
     if (provider === "openai") return await callOpenAI(userPrompt);
     if (provider === "groq") return await callGroq(userPrompt);
+    if (provider === "anthropic") return await callAnthropic(userPrompt);
+    if (provider === "gemini") return await callGemini(userPrompt);
+    if (provider === "ollama") return await callOllama(userPrompt);
