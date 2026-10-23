@@ -66,3 +66,8 @@ async function classifyToxicityOnce(text) {
     return { verdict: "unclear" };
   }
 }
+
+
+export async function askMentor(context, question) {
+  const provider = (process.env.LLM_PROVIDER || "none").toLowerCase();
+  const transcript = context
