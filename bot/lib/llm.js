@@ -38,3 +38,5 @@ async function classifyToxicityOnce(text) {
       },
       signal: AbortSignal.timeout(4000),
       body: JSON.stringify({
+        model,
+        temperature: 0,
