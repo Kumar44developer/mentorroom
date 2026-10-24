@@ -168,3 +168,8 @@ async function callGemini(userPrompt) {
     headers: { "content-type": "application/json" },
     signal: AbortSignal.timeout(20000),
     body: JSON.stringify({
+      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+      contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+      generationConfig: { maxOutputTokens: 300 },
+    }),
+  });
