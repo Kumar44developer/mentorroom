@@ -150,3 +150,8 @@ async function callAnthropic(userPrompt) {
     signal: AbortSignal.timeout(20000),
     body: JSON.stringify({
       model,
+      max_tokens: 300,
+      system: SYSTEM_PROMPT,
+      messages: [{ role: "user", content: userPrompt }],
+    }),
+  });
