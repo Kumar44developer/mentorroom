@@ -185,3 +185,11 @@ async function callOllama(userPrompt) {
     headers: { "content-type": "application/json" },
     signal: AbortSignal.timeout(30000),
     body: JSON.stringify({
+      model,
+      stream: false,
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        { role: "user", content: userPrompt },
+      ],
+    }),
+  });
