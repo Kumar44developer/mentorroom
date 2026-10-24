@@ -155,3 +155,6 @@ async function callAnthropic(userPrompt) {
       messages: [{ role: "user", content: userPrompt }],
     }),
   });
+  const data = await res.json();
+  return data?.content?.[0]?.text || fallbackAnswer(userPrompt);
+}
