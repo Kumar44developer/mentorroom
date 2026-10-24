@@ -125,3 +125,10 @@ async function callGroq(userPrompt) {
     signal: AbortSignal.timeout(20000),
     body: JSON.stringify({
       model,
+      max_tokens: 300,
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        { role: "user", content: userPrompt },
+      ],
+    }),
+  });
