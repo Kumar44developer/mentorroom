@@ -181,3 +181,5 @@ async function callOllama(userPrompt) {
   const base = process.env.LLM_BASE_URL || "http://localhost:11434";
   const model = process.env.LLM_MODEL || "llama3.2";
   const res = await fetch(`${base}/api/chat`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
