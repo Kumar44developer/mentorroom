@@ -166,3 +166,5 @@ async function callGemini(userPrompt) {
   const res = await fetch(url, {
     method: "POST",
     headers: { "content-type": "application/json" },
+    signal: AbortSignal.timeout(20000),
+    body: JSON.stringify({
