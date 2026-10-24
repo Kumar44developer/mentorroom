@@ -193,3 +193,6 @@ async function callOllama(userPrompt) {
       ],
     }),
   });
+  const data = await res.json();
+  return data?.message?.content || fallbackAnswer(userPrompt);
+}
