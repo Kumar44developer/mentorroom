@@ -158,3 +158,7 @@ async function callAnthropic(userPrompt) {
   const data = await res.json();
   return data?.content?.[0]?.text || fallbackAnswer(userPrompt);
 }
+
+
+async function callGemini(userPrompt) {
+  const model = process.env.LLM_MODEL || "gemini-1.5-flash";
