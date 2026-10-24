@@ -183,3 +183,5 @@ async function callOllama(userPrompt) {
   const res = await fetch(`${base}/api/chat`, {
     method: "POST",
     headers: { "content-type": "application/json" },
+    signal: AbortSignal.timeout(30000),
+    body: JSON.stringify({
