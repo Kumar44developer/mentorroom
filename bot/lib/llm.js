@@ -136,3 +136,8 @@ async function callGroq(userPrompt) {
   if (data?.error) throw new Error(data.error.message || "groq error");
   return data?.choices?.[0]?.message?.content || fallbackAnswer(userPrompt);
 }
+
+
+async function callAnthropic(userPrompt) {
+  const model = process.env.LLM_MODEL || "claude-3-5-haiku-latest";
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
