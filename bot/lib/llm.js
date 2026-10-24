@@ -109,3 +109,6 @@ async function callOpenAI(userPrompt) {
       ],
     }),
   });
+  const data = await res.json();
+  return data?.choices?.[0]?.message?.content || fallbackAnswer(userPrompt);
+}
