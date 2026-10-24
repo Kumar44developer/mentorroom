@@ -147,3 +147,6 @@ async function callAnthropic(userPrompt) {
       "x-api-key": process.env.LLM_API_KEY,
       "anthropic-version": "2023-06-01",
     },
+    signal: AbortSignal.timeout(20000),
+    body: JSON.stringify({
+      model,
