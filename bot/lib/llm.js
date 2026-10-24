@@ -132,3 +132,7 @@ async function callGroq(userPrompt) {
       ],
     }),
   });
+  const data = await res.json();
+  if (data?.error) throw new Error(data.error.message || "groq error");
+  return data?.choices?.[0]?.message?.content || fallbackAnswer(userPrompt);
+}
