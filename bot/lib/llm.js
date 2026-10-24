@@ -117,3 +117,8 @@ async function callGroq(userPrompt) {
   const base = process.env.LLM_BASE_URL || "https://api.groq.com/openai/v1";
   const model = process.env.LLM_MODEL || "openai/gpt-oss-20b";
   const res = await fetch(`${base}/chat/completions`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${process.env.LLM_API_KEY}`,
+    },
