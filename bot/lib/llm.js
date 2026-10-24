@@ -106,3 +106,6 @@ async function callOpenAI(userPrompt) {
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: userPrompt },
+      ],
+    }),
+  });
