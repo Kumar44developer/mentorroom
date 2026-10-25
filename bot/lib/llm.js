@@ -231,3 +231,5 @@ async function askRaw(prompt) {
       (providerIsGroq() ? "https://api.groq.com/openai/v1" : "https://api.openai.com/v1");
     const model = process.env.LLM_MODEL || (providerIsGroq() ? "openai/gpt-oss-20b" : "gpt-4o-mini");
     const res = await fetch(`${base}/chat/completions`, {
+      method: "POST",
+      headers: {
