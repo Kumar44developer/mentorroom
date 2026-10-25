@@ -289,3 +289,6 @@ function heuristicRecap(context) {
   return {
     summary:
       humans.length === 0
+        ? "A short session — not much was discussed yet."
+        : `This session had ${humans.length} message${humans.length === 1 ? "" : "s"} from ${speakers.join(", ") || "the room"}.`,
+    topics: [...new Set(questions.map((q) => q.split(/\s+/).slice(0, 4).join(" ")))].slice(0, 6),
