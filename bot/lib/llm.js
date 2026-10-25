@@ -196,3 +196,7 @@ async function callOllama(userPrompt) {
   const data = await res.json();
   return data?.message?.content || fallbackAnswer(userPrompt);
 }
+
+function fallbackAnswer(question) {
+  const q = (question || "").trim();
+
