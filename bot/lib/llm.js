@@ -267,3 +267,7 @@ function extractJson(text) {
   if (!m) return null;
   try {
     return JSON.parse(m[0]);
+  } catch {
+    return null;
+  }
+}
