@@ -217,3 +217,9 @@ export async function generateRecap(context) {
       const raw = await askRaw(prompt);
       const json = extractJson(raw);
       if (json) return normalizeRecap(json, transcript);
+    } catch (e) {
+      console.error("[recap] llm error, using heuristic:", e.message);
+    }
+  }
+  return heuristicRecap(context);
+}
