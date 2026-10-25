@@ -223,3 +223,5 @@ export async function generateRecap(context) {
   }
   return heuristicRecap(context);
 }
+
+async function askRaw(prompt) {
