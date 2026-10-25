@@ -12,3 +12,5 @@ for (const p of [path.join(__dirname, ".env"), path.join(__dirname, "..", ".env"
     try {
       process.loadEnvFile
         ? process.loadEnvFile(p)
+        : (await import("dotenv")).default.config({ path: p });
+    } catch {
