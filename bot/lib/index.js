@@ -8,3 +8,5 @@ import { askMentor, generateRecap, classifyToxicity, llmConfigured } from "./lib
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Load bot/.env if present, else fall back to a root .env.
 for (const p of [path.join(__dirname, ".env"), path.join(__dirname, "..", ".env")]) {
+  if (fs.existsSync(p)) {
+    try {
