@@ -207,3 +207,6 @@ function fallbackAnswer(question) {
     `(Tip for the demo: set LLM_PROVIDER + LLM_API_KEY in bot/.env to get real AI answers.)`
   );
 }
+
+export async function generateRecap(context) {
+  const transcript = context.map((m) => `${m.name}: ${m.text}`).join("\n").slice(-6000);
