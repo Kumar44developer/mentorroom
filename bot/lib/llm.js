@@ -255,3 +255,8 @@ async function askRaw(prompt) {
 function providerIsGroq() {
   return (process.env.LLM_PROVIDER || "none").toLowerCase() === "groq";
 }
+
+function providerSupportsRaw() {
+  const p = (process.env.LLM_PROVIDER || "none").toLowerCase();
+  return (p === "openai" || p === "groq") && Boolean(process.env.LLM_API_KEY);
+}
