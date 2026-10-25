@@ -260,3 +260,8 @@ function providerSupportsRaw() {
   const p = (process.env.LLM_PROVIDER || "none").toLowerCase();
   return (p === "openai" || p === "groq") && Boolean(process.env.LLM_API_KEY);
 }
+
+function extractJson(text) {
+  if (!text) return null;
+  const m = text.match(/\{[\s\S]*\}/);
+  if (!m) return null;
