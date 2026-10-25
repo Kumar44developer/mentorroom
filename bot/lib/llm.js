@@ -265,3 +265,5 @@ function extractJson(text) {
   if (!text) return null;
   const m = text.match(/\{[\s\S]*\}/);
   if (!m) return null;
+  try {
+    return JSON.parse(m[0]);
