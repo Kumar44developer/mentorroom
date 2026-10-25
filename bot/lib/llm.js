@@ -225,3 +225,5 @@ export async function generateRecap(context) {
 }
 
 async function askRaw(prompt) {
+  if (providerSupportsRaw()) {
+    const base =
