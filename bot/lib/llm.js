@@ -246,3 +246,8 @@ async function askRaw(prompt) {
         ],
       }),
     });
+    const data = await res.json();
+    return data?.choices?.[0]?.message?.content;
+  }
+  throw new Error("no raw provider");
+}
