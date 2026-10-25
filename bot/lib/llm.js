@@ -236,3 +236,5 @@ async function askRaw(prompt) {
         "content-type": "application/json",
         authorization: `Bearer ${process.env.LLM_API_KEY}`,
       },
+      signal: AbortSignal.timeout(30000),
+      body: JSON.stringify({
