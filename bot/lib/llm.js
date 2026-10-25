@@ -238,3 +238,6 @@ async function askRaw(prompt) {
       },
       signal: AbortSignal.timeout(30000),
       body: JSON.stringify({
+        model,
+        max_tokens: 400,
+        messages: [
