@@ -281,3 +281,6 @@ function normalizeRecap(json, transcript) {
     transcript,
   };
 }
+
+function heuristicRecap(context) {
+  const humans = context.filter((m) => m.uid !== process.env.COMETCHAT_BOT_UID && m.uid !== "mentor_bot");
