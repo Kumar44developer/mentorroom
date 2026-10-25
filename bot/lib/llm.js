@@ -241,3 +241,8 @@ async function askRaw(prompt) {
         model,
         max_tokens: 400,
         messages: [
+          { role: "system", content: "You output strict JSON only." },
+          { role: "user", content: prompt },
+        ],
+      }),
+    });
