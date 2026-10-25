@@ -251,3 +251,7 @@ async function askRaw(prompt) {
   }
   throw new Error("no raw provider");
 }
+
+function providerIsGroq() {
+  return (process.env.LLM_PROVIDER || "none").toLowerCase() === "groq";
+}
