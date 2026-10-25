@@ -213,3 +213,7 @@ export async function generateRecap(context) {
   const prompt = `Summarize this study-room session as JSON with keys: summary (1-2 sentences), topics (array of short strings), openQuestions (array of strings). Conversation:\n${transcript}`;
   const provider = (process.env.LLM_PROVIDER || "none").toLowerCase();
   if (provider !== "none") {
+    try {
+      const raw = await askRaw(prompt);
+      const json = extractJson(raw);
+      if (json) return normalizeRecap(json, transcript);
