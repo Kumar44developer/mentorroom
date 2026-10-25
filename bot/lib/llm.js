@@ -201,3 +201,9 @@ function fallbackAnswer(question) {
   const q = (question || "").trim();
   const topic = q.replace(/^@mentor\s*/i, "").replace(/\s*\?+\s*$/, "").trim();
   return (
+    `Great question about “${topic || "this topic"}”. Here's the quick version:\n` +
+    `• Break it into the core idea, then a tiny example.\n` +
+    `• Try it yourself first, then compare with the docs.\n` +
+    `(Tip for the demo: set LLM_PROVIDER + LLM_API_KEY in bot/.env to get real AI answers.)`
+  );
+}
