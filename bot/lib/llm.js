@@ -284,3 +284,5 @@ function normalizeRecap(json, transcript) {
 
 function heuristicRecap(context) {
   const humans = context.filter((m) => m.uid !== process.env.COMETCHAT_BOT_UID && m.uid !== "mentor_bot");
+  const questions = humans.filter((m) => m.text.includes("?")).map((m) => m.text.replace(/^@mentor\s*/i, "").trim());
+  const speakers = [...new Set(humans.map((m) => m.name))];
