@@ -199,4 +199,5 @@ async function callOllama(userPrompt) {
 
 function fallbackAnswer(question) {
   const q = (question || "").trim();
-
+  const topic = q.replace(/^@mentor\s*/i, "").replace(/\s*\?+\s*$/, "").trim();
+  return (
