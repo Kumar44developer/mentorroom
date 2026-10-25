@@ -271,3 +271,7 @@ function extractJson(text) {
     return null;
   }
 }
+
+
+function normalizeRecap(json, transcript) {
+  return {
