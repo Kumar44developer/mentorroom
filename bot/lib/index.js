@@ -10,3 +10,5 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 for (const p of [path.join(__dirname, ".env"), path.join(__dirname, "..", ".env")]) {
   if (fs.existsSync(p)) {
     try {
+      process.loadEnvFile
+        ? process.loadEnvFile(p)
