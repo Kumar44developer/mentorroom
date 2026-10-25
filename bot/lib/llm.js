@@ -210,3 +210,6 @@ function fallbackAnswer(question) {
 
 export async function generateRecap(context) {
   const transcript = context.map((m) => `${m.name}: ${m.text}`).join("\n").slice(-6000);
+  const prompt = `Summarize this study-room session as JSON with keys: summary (1-2 sentences), topics (array of short strings), openQuestions (array of strings). Conversation:\n${transcript}`;
+  const provider = (process.env.LLM_PROVIDER || "none").toLowerCase();
+  if (provider !== "none") {
