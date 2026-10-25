@@ -227,3 +227,5 @@ export async function generateRecap(context) {
 async function askRaw(prompt) {
   if (providerSupportsRaw()) {
     const base =
+      process.env.LLM_BASE_URL ||
+      (providerIsGroq() ? "https://api.groq.com/openai/v1" : "https://api.openai.com/v1");
