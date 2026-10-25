@@ -275,3 +275,9 @@ function extractJson(text) {
 
 function normalizeRecap(json, transcript) {
   return {
+    summary: json.summary || "A productive study session.",
+    topics: Array.isArray(json.topics) ? json.topics.slice(0, 6) : [],
+    openQuestions: Array.isArray(json.openQuestions) ? json.openQuestions.slice(0, 5) : [],
+    transcript,
+  };
+}
