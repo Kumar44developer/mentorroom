@@ -56,3 +56,9 @@ function remember(ctx) {
   if (arr.length > 25) arr.shift();
   contextCache.set(guid, arr);
 }
+
+
+function getContext(guid) {
+  return contextCache.get(guid) || [];
+}
+
