@@ -71,3 +71,8 @@ function shouldAnswer(text) {
   // statements — so nobody is ever left waiting for an answer.
   return true;
 }
+
+
+async function main() {
+  const CometChat = await loadCometChat();
+  console.log("[mentor] booting browser-shimmed CometChat SDK…");
