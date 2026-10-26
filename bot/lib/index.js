@@ -45,3 +45,6 @@ process.on("unhandledRejection", (e) =>
 
 function pick(obj, getter, key) {
   if (!obj) return undefined;
+  if (typeof obj[getter] === "function") return obj[getter]();
+  return obj[key];
+}
