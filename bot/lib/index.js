@@ -52,3 +52,7 @@ function pick(obj, getter, key) {
 function remember(ctx) {
   const { guid, uid, name, text } = ctx;
   const arr = contextCache.get(guid) || [];
+  arr.push({ uid, name, text });
+  if (arr.length > 25) arr.shift();
+  contextCache.set(guid, arr);
+}
