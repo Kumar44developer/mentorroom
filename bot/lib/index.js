@@ -48,3 +48,7 @@ function pick(obj, getter, key) {
   if (typeof obj[getter] === "function") return obj[getter]();
   return obj[key];
 }
+
+function remember(ctx) {
+  const { guid, uid, name, text } = ctx;
+  const arr = contextCache.get(guid) || [];
