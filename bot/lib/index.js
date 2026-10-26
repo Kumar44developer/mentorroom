@@ -42,3 +42,6 @@ process.on("uncaughtException", (e) =>
 process.on("unhandledRejection", (e) =>
   console.warn("[mentor] unhandled rejection:", e?.message || e)
 );
+
+function pick(obj, getter, key) {
+  if (!obj) return undefined;
