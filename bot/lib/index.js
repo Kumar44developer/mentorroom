@@ -82,3 +82,8 @@ async function main() {
   const user = await CometChat.login(BOT_UID, AUTH_KEY);
   console.log(`[mentor] logged in as ${user.getUid?.() || BOT_UID} — presence is now ONLINE.`);
   console.log(`[mentor] LLM: ${llmConfigured() ? "configured (" + process.env.LLM_PROVIDER + ")" : "fallback mode (no key)"}`);
+
+
+  CometChat.addMessageListener(
+    "mentorroom_bot",
+    new CometChat.MessageListener({
