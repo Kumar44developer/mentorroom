@@ -23,3 +23,7 @@ const APP_ID = process.env.COMETCHAT_APP_ID;
 const AUTH_KEY = process.env.COMETCHAT_AUTH_KEY;
 const BOT_UID = process.env.COMETCHAT_BOT_UID || "mentor_bot";
 const PORT = Number(process.env.BOT_PORT || 8787);
+
+if (!APP_ID || !AUTH_KEY) {
+  console.error(
+    "\n[MentorRoom bot] Missing COMETCHAT_APP_ID / COMETCHAT_AUTH_KEY.\n" +
