@@ -21,3 +21,5 @@ for (const p of [path.join(__dirname, ".env"), path.join(__dirname, "..", ".env"
 
 const APP_ID = process.env.COMETCHAT_APP_ID;
 const AUTH_KEY = process.env.COMETCHAT_AUTH_KEY;
+const BOT_UID = process.env.COMETCHAT_BOT_UID || "mentor_bot";
+const PORT = Number(process.env.BOT_PORT || 8787);
