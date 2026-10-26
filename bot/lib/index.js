@@ -76,3 +76,7 @@ function shouldAnswer(text) {
 async function main() {
   const CometChat = await loadCometChat();
   console.log("[mentor] booting browser-shimmed CometChat SDK…");
+
+
+  await CometChat.init(APP_ID);
+  const user = await CometChat.login(BOT_UID, AUTH_KEY);
