@@ -35,3 +35,7 @@ if (!APP_ID || !AUTH_KEY) {
 
 const processed = new Set(); // dedupe by message id
 const contextCache = new Map();
+
+process.on("uncaughtException", (e) =>
+  console.warn("[mentor] uncaught exception (kept alive):", e?.message || e)
+);
