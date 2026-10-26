@@ -1,4 +1,4 @@
-import "dotenv/config";
+  import "dotenv/config";
 import { fileURLToPath } from "url";
 import path from "path";
 import fs from "fs";
@@ -31,3 +31,7 @@ if (!APP_ID || !AUTH_KEY) {
   );
   process.exit(1);
 }
+
+
+const processed = new Set(); // dedupe by message id
+const contextCache = new Map();
