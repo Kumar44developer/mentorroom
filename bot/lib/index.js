@@ -80,3 +80,5 @@ async function main() {
 
   await CometChat.init(APP_ID);
   const user = await CometChat.login(BOT_UID, AUTH_KEY);
+  console.log(`[mentor] logged in as ${user.getUid?.() || BOT_UID} — presence is now ONLINE.`);
+  console.log(`[mentor] LLM: ${llmConfigured() ? "configured (" + process.env.LLM_PROVIDER + ")" : "fallback mode (no key)"}`);
