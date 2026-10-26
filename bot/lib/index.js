@@ -62,3 +62,6 @@ function getContext(guid) {
   return contextCache.get(guid) || [];
 }
 
+
+function shouldAnswer(text) {
+  const t = (text || "").trim();
