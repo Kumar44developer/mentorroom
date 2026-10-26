@@ -27,3 +27,7 @@ const PORT = Number(process.env.BOT_PORT || 8787);
 if (!APP_ID || !AUTH_KEY) {
   console.error(
     "\n[MentorRoom bot] Missing COMETCHAT_APP_ID / COMETCHAT_AUTH_KEY.\n" +
+      "Copy .env.example to bot/.env (or root .env) and fill in your credentials.\n"
+  );
+  process.exit(1);
+}
