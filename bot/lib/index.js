@@ -39,3 +39,6 @@ const contextCache = new Map();
 process.on("uncaughtException", (e) =>
   console.warn("[mentor] uncaught exception (kept alive):", e?.message || e)
 );
+process.on("unhandledRejection", (e) =>
+  console.warn("[mentor] unhandled rejection:", e?.message || e)
+);
