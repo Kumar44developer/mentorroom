@@ -65,3 +65,9 @@ function getContext(guid) {
 
 function shouldAnswer(text) {
   const t = (text || "").trim();
+  if (!t) return false;
+  if (t.toLowerCase().startsWith("/")) return false; // commands handled separately
+  // The mentor replies to every human message — questions, greetings,
+  // statements — so nobody is ever left waiting for an answer.
+  return true;
+}
