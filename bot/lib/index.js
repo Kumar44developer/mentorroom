@@ -108,3 +108,8 @@ async function main() {
 async function handleText(CometChat, message) {
   const id =
     pick(message, "getMessageId", "messageId") || pick(message, "getId", "id");
+  if (id && processed.has(id)) return;
+  if (id) {
+    processed.add(id);
+    if (processed.size > 1000) processed.delete(processed.values().next().value); // keep bounded
+  }
