@@ -160,3 +160,10 @@ async function handleCustom(CometChat, message) {
 function startPoller(CometChat) {
   const rooms = new Map(); // guid -> last seen sentAt (seconds)
   let tick = 0;
+  const refreshRooms = async () => {
+    const groups = await new CometChat.GroupsRequestBuilder().setLimit(50).build().fetchNext();
+    for (const g of groups) {
+      const guid = pick(g, "getGuid", "guid");
+      if (guid && !rooms.has(guid)) rooms.set(guid, Math.floor(Date.now() / 1000));
+    }
+  };
