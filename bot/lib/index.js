@@ -150,4 +150,10 @@ async function handleCustom(CometChat, message) {
     pick(message, "getSubType", "subType"),
     pick(message, "getCustomType", "customType"),
     pick(message, "getTemplateKey", "templateKey"),
-  ];
+  ];  
+  if (!candidates.includes("recap_request")) return;
+  const receiver = pick(message, "getReceiver", "receiver");
+  const guid = typeof receiver === "string" ? receiver : pick(receiver, "getGuid", "guid");
+  await postRecap(CometChat, guid);
+}
+
