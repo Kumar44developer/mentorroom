@@ -157,3 +157,6 @@ async function handleCustom(CometChat, message) {
   await postRecap(CometChat, guid);
 }
 
+function startPoller(CometChat) {
+  const rooms = new Map(); // guid -> last seen sentAt (seconds)
+  let tick = 0;
