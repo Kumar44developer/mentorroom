@@ -140,3 +140,7 @@ async function handleCustom(CometChat, message) {
   const id =
     pick(message, "getMessageId", "messageId") || pick(message, "getId", "id");
   if (id && processed.has(id)) return; // WS + poller must not double-recap
+  if (id) {
+    processed.add(id);
+    if (processed.size > 1000) processed.delete(processed.values().next().value);
+  }
