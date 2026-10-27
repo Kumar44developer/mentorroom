@@ -115,3 +115,5 @@ async function handleText(CometChat, message) {
   }
   const sender = pick(message, "getSender", "sender");
   const senderUid = pick(sender, "getUid", "uid");
+  if (senderUid === BOT_UID) return; // never answer itself
+  const receiverType = pick(message, "getReceiverType", "receiverType");
