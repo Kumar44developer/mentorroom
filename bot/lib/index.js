@@ -119,3 +119,8 @@ async function handleText(CometChat, message) {
   const receiverType = pick(message, "getReceiverType", "receiverType");
   if (receiverType !== CometChat.RECEIVER_TYPE.GROUP && receiverType !== "group") return;
   const receiver = pick(message, "getReceiver", "receiver");
+  const guid = typeof receiver === "string" ? receiver : pick(receiver, "getGuid", "guid");
+  const text = pick(message, "getText", "text") || "";
+
+  const name = pick(sender, "getName", "name") || senderUid || "someone";
+  remember({ guid, uid: senderUid, name, text });
