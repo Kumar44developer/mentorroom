@@ -104,3 +104,7 @@ async function main() {
   startPoller(CometChat);
   startHttpServer(CometChat);
 }
+
+async function handleText(CometChat, message) {
+  const id =
+    pick(message, "getMessageId", "messageId") || pick(message, "getId", "id");
