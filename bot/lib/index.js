@@ -167,3 +167,7 @@ function startPoller(CometChat) {
       if (guid && !rooms.has(guid)) rooms.set(guid, Math.floor(Date.now() / 1000));
     }
   };
+  setInterval(async () => {
+    try {
+      if (tick++ % 15 === 0) await refreshRooms(); // ~every 90s
+      for (const [guid, since] of rooms) {
