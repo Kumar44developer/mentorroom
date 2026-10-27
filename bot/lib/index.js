@@ -95,3 +95,12 @@ async function main() {
       ),
     })
   );
+
+  console.log("[mentor] listening. The mentor replies to every message in the room.");
+  // Safety net: since the 2026-10-05 platform deploy, WebSocket push does not
+  // deliver group messages to non-browser (Node/jsdom) sessions, while REST
+  // reads still work. Poll each room for anything the socket missed; the
+  // shared `processed` id-set keeps the two paths from ever double-answering.
+  startPoller(CometChat);
+  startHttpServer(CometChat);
+}
