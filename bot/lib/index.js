@@ -124,3 +124,9 @@ async function handleText(CometChat, message) {
 
   const name = pick(sender, "getName", "name") || senderUid || "someone";
   remember({ guid, uid: senderUid, name, text });
+
+
+  if (text.trim().toLowerCase() === "/recap") {
+    await postRecap(CometChat, guid);
+    return;
+  }
