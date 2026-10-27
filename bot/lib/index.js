@@ -90,3 +90,8 @@ async function main() {
       onTextMessageReceived: (message) => handleText(CometChat, message).catch((e) =>
         console.error("[mentor] text handler error:", e.message || e)
       ),
+      onCustomMessageReceived: (message) => handleCustom(CometChat, message).catch((e) =>
+        console.error("[mentor] custom handler error:", e.message || e)
+      ),
+    })
+  );
