@@ -144,3 +144,10 @@ async function handleCustom(CometChat, message) {
     processed.add(id);
     if (processed.size > 1000) processed.delete(processed.values().next().value);
   }
+
+  const candidates = [
+    pick(message, "getType", "type"),
+    pick(message, "getSubType", "subType"),
+    pick(message, "getCustomType", "customType"),
+    pick(message, "getTemplateKey", "templateKey"),
+  ];
