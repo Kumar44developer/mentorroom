@@ -177,3 +177,8 @@ function startPoller(CometChat) {
           .setTimestamp(since)
           .build()
           .fetchNext();
+        for (const m of msgs || []) {
+          const ts = Number(pick(m, "getSentAt", "sentAt")) || 0;
+          if (ts > rooms.get(guid)) rooms.set(guid, ts);
+          // Polled wrappers expose the custom type as `type` for custom
+          // messages ("recap_request"), so route on `category` first.
