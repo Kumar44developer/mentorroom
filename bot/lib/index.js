@@ -134,3 +134,9 @@ async function handleText(CometChat, message) {
     await answer(CometChat, guid, text);
   }
 }
+
+
+async function handleCustom(CometChat, message) {
+  const id =
+    pick(message, "getMessageId", "messageId") || pick(message, "getId", "id");
+  if (id && processed.has(id)) return; // WS + poller must not double-recap
