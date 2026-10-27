@@ -130,3 +130,7 @@ async function handleText(CometChat, message) {
     await postRecap(CometChat, guid);
     return;
   }
+  if (shouldAnswer(text)) {
+    await answer(CometChat, guid, text);
+  }
+}
