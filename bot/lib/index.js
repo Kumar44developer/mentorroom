@@ -87,3 +87,6 @@ async function main() {
   CometChat.addMessageListener(
     "mentorroom_bot",
     new CometChat.MessageListener({
+      onTextMessageReceived: (message) => handleText(CometChat, message).catch((e) =>
+        console.error("[mentor] text handler error:", e.message || e)
+      ),
