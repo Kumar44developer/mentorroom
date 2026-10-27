@@ -113,3 +113,5 @@ async function handleText(CometChat, message) {
     processed.add(id);
     if (processed.size > 1000) processed.delete(processed.values().next().value); // keep bounded
   }
+  const sender = pick(message, "getSender", "sender");
+  const senderUid = pick(sender, "getUid", "uid");
