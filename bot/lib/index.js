@@ -171,3 +171,9 @@ function startPoller(CometChat) {
     try {
       if (tick++ % 15 === 0) await refreshRooms(); // ~every 90s
       for (const [guid, since] of rooms) {
+        const msgs = await new CometChat.MessagesRequestBuilder()
+          .setGUID(guid)
+          .setLimit(20)
+          .setTimestamp(since)
+          .build()
+          .fetchNext();
