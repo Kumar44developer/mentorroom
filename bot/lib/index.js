@@ -218,3 +218,7 @@ async function answer(CometChat, guid, question) {
     CometChat.endTyping(indicator);
   }
 }
+
+async function postRecap(CometChat, guid) {
+  const indicator = new CometChat.TypingIndicator(guid, CometChat.RECEIVER_TYPE.GROUP);
+  CometChat.startTyping(indicator);
