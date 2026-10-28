@@ -260,3 +260,7 @@ async function postRecap(CometChat, guid) {
     remember({ guid, uid: BOT_UID, name: "Mentor AI", text: body });
   } catch (e) {
     console.error("[mentor] recap error:", e.message || e);
+  } finally {
+    CometChat.endTyping(indicator);
+  }
+}
