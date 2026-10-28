@@ -204,3 +204,6 @@ async function answer(CometChat, guid, question) {
     const context = getContext(guid).slice(-20);
     const reply = await askMentor(context, question);
     const msg = new CometChat.TextMessage(guid, reply, CometChat.RECEIVER_TYPE.GROUP);
+    try {
+      await CometChat.sendMessage(msg);
+    } catch (e) {
