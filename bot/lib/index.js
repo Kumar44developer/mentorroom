@@ -250,3 +250,5 @@ async function postRecap(CometChat, guid) {
         openQuestions: recap.openQuestions || [],
       },
     });
+    try {
+      await CometChat.sendMessage(msg);
