@@ -186,3 +186,7 @@ function startPoller(CometChat) {
           const type =
             pick(m, "getMessageType", "messageType") || pick(m, "getType", "type");
           if (category === "custom" || type === "recap_request")
+            await handleCustom(CometChat, m);
+          else if (type === "text") await handleText(CometChat, m);
+        }
+      }
