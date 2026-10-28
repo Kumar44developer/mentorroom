@@ -230,3 +230,9 @@ async function postRecap(CometChat, guid) {
       (recap.openQuestions?.length
         ? `\n\nOpen questions:\n- ${recap.openQuestions.join("\n- ")}`
         : "");
+    const data = {
+      text: body,
+      summary: recap.summary,
+      topics: recap.topics || [],
+      openQuestions: recap.openQuestions || [],
+    };
