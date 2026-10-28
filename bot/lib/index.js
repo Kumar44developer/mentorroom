@@ -280,3 +280,8 @@ function startHttpServer(CometChat) {
     app.get("/health", (_req, res) => res.json({ ok: true, bot: BOT_UID }));
     app.post("/moderate", async (req, res) => {
       const text = req.body?.text || "";
+
+      const bad = ["fuck", "shit", "bitch", "asshole", "kill yourself", "kys", "retard", "slut", "whore"];
+      if (bad.some((w) => text.toLowerCase().includes(w))) {
+        return res.json({ flagged: true, reason: "Detected by server moderation" });
+      }
