@@ -252,3 +252,8 @@ async function postRecap(CometChat, guid) {
     });
     try {
       await CometChat.sendMessage(msg);
+    } catch (e) {
+      console.warn("[mentor] recap send failed, retrying once:", e.message || e);
+      await new Promise((r) => setTimeout(r, 1500));
+      await CometChat.sendMessage(msg);
+    }
