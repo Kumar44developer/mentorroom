@@ -200,3 +200,7 @@ function startPoller(CometChat) {
 async function answer(CometChat, guid, question) {
   const indicator = new CometChat.TypingIndicator(guid, CometChat.RECEIVER_TYPE.GROUP);
   CometChat.startTyping(indicator);
+  try {
+    const context = getContext(guid).slice(-20);
+    const reply = await askMentor(context, question);
+    const msg = new CometChat.TextMessage(guid, reply, CometChat.RECEIVER_TYPE.GROUP);
