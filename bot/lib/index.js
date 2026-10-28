@@ -182,3 +182,7 @@ function startPoller(CometChat) {
           if (ts > rooms.get(guid)) rooms.set(guid, ts);
           // Polled wrappers expose the custom type as `type` for custom
           // messages ("recap_request"), so route on `category` first.
+          const category = pick(m, "getCategory", "category");
+          const type =
+            pick(m, "getMessageType", "messageType") || pick(m, "getType", "type");
+          if (category === "custom" || type === "recap_request")
