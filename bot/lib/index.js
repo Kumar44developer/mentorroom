@@ -196,3 +196,7 @@ function startPoller(CometChat) {
   }, 6000);
   refreshRooms().catch(() => {});
 }
+
+async function answer(CometChat, guid, question) {
+  const indicator = new CometChat.TypingIndicator(guid, CometChat.RECEIVER_TYPE.GROUP);
+  CometChat.startTyping(indicator);
