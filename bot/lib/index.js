@@ -222,3 +222,7 @@ async function answer(CometChat, guid, question) {
 async function postRecap(CometChat, guid) {
   const indicator = new CometChat.TypingIndicator(guid, CometChat.RECEIVER_TYPE.GROUP);
   CometChat.startTyping(indicator);
+  try {
+    const context = getContext(guid).slice(-40);
+    const recap = await generateRecap(context);
+    const body =
