@@ -190,3 +190,9 @@ function startPoller(CometChat) {
           else if (type === "text") await handleText(CometChat, m);
         }
       }
+    } catch (e) {
+      console.warn("[mentor] poll tick failed (will retry):", e?.message || e);
+    }
+  }, 6000);
+  refreshRooms().catch(() => {});
+}
