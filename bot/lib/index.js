@@ -290,3 +290,8 @@ function startHttpServer(CometChat) {
     app.listen(PORT, () => console.log(`[mentor] http api on http://localhost:${PORT}`));
   });
 }
+
+main().catch((e) => {
+  console.error("[mentor] fatal:", e);
+  process.exit(1);
+});
