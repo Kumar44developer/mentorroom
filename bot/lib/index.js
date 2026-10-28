@@ -211,3 +211,10 @@ async function answer(CometChat, guid, question) {
       await new Promise((r) => setTimeout(r, 1500));
       await CometChat.sendMessage(msg);
     }
+    remember({ guid, uid: BOT_UID, name: "Mentor AI", text: reply });
+  } catch (e) {
+    console.error("[mentor] answer error:", e.message);
+  } finally {
+    CometChat.endTyping(indicator);
+  }
+}
