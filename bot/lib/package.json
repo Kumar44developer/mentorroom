@@ -7,3 +7,10 @@
   "scripts": {
     "start": "node index.js"
   },
+  "dependencies": {
+    "@cometchat/chat-sdk-javascript": "^4.1.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsdom": "^25.0.1",
+    "ws": "^8.18.0"
+  },
