@@ -277,3 +277,6 @@ function startHttpServer(CometChat) {
       if (req.method === "OPTIONS") return res.sendStatus(204);
       next();
     });
+    app.get("/health", (_req, res) => res.json({ ok: true, bot: BOT_UID }));
+    app.post("/moderate", async (req, res) => {
+      const text = req.body?.text || "";
