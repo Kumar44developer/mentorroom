@@ -242,3 +242,11 @@ async function postRecap(CometChat, guid) {
       "mentor_recap",
       data
     );
+    msg.setCategory("custom");
+    msg.setMetadata({
+      recap: {
+        summary: recap.summary,
+        topics: recap.topics || [],
+        openQuestions: recap.openQuestions || [],
+      },
+    });
