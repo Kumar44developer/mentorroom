@@ -236,3 +236,9 @@ async function postRecap(CometChat, guid) {
       topics: recap.topics || [],
       openQuestions: recap.openQuestions || [],
     };
+    const msg = new CometChat.CustomMessage(
+      guid,
+      CometChat.RECEIVER_TYPE.GROUP,
+      "mentor_recap",
+      data
+    );
