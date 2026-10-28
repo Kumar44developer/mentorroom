@@ -226,3 +226,7 @@ async function postRecap(CometChat, guid) {
     const context = getContext(guid).slice(-40);
     const recap = await generateRecap(context);
     const body =
+      recap.summary +
+      (recap.openQuestions?.length
+        ? `\n\nOpen questions:\n- ${recap.openQuestions.join("\n- ")}`
+        : "");
