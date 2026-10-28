@@ -285,3 +285,8 @@ function startHttpServer(CometChat) {
       if (bad.some((w) => text.toLowerCase().includes(w))) {
         return res.json({ flagged: true, reason: "Detected by server moderation" });
       }
+      res.json(await classifyToxicity(text));
+    });
+    app.listen(PORT, () => console.log(`[mentor] http api on http://localhost:${PORT}`));
+  });
+}
