@@ -264,3 +264,8 @@ async function postRecap(CometChat, guid) {
     CometChat.endTyping(indicator);
   }
 }
+
+function startHttpServer(CometChat) {
+  import("express").then(({ default: express }) => {
+    const app = express();
+    app.use(express.json());
