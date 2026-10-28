@@ -257,3 +257,6 @@ async function postRecap(CometChat, guid) {
       await new Promise((r) => setTimeout(r, 1500));
       await CometChat.sendMessage(msg);
     }
+    remember({ guid, uid: BOT_UID, name: "Mentor AI", text: body });
+  } catch (e) {
+    console.error("[mentor] recap error:", e.message || e);
