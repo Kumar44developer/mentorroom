@@ -10,3 +10,9 @@ export default defineConfig({
       include: ["lib/**/*.js", "index.js"],
       exclude: ["node_modules", "__tests__"],
     },
+    include: ["__tests__/**/*.test.js"],
+    testTimeout: 10000,
+    // Restore all mocks between tests to prevent state leakage.
+    restoreMocks: true,
+  },
+});
